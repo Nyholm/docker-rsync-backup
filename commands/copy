@@ -11,11 +11,13 @@ DAYS=${DAYS-'30'}
 
 # Command
 function uploadBackup {
-    # Move files form source to destination
-    rsync -az --chmod=u+rw ${SOURCE_PATH}/* ${TARGET_PATH}
+    while inotifywait -r -e modify,create,delete ${SOURCE_PATH}; do
+        # Move files form source to destination
+        rsync -az --chmod=u+rw ${SOURCE_PATH}/* ${TARGET_PATH}
 
-    # Remove files from source
-    find ${SOURCE_PATH} -mindepth 1 -mtime +${DAYS} -delete
+        # Remove files from source
+        find ${SOURCE_PATH} -mindepth 1 -mtime +${DAYS} -delete
+    done
 }
 
 # upload backup

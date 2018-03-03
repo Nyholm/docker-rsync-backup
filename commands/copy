@@ -15,7 +15,7 @@ function uploadBackup {
     rsync -az --chmod=u+rw ${SOURCE_PATH}/* ${TARGET_PATH}
 
     # Remove files from source
-    find ${SOURCE_PATH} -mindepth 1 -mtime +${TARGET_PATH} -delete
+    find ${SOURCE_PATH} -mindepth 1 -mtime +${DAYS} -delete
 }
 
 # upload backup

@@ -1,17 +1,9 @@
-# Docker Rsync Backup
+# Docker Rsync move
 
 Minimal Alpine Linux Docker container with rsync backup capability.
 
-Specifically designed for rsync.net, it should work elsewhere.
-
 ## Environment Configuration
 
-- `BACKUP_PATH` - Defaults to `/mnt`
-- `BACKUP_EXCLUDE_PATH` -
-- `REMOTE` - Remote hostname. Defaults to `rsync.net`
-- `REMOTE_PATH` - Defaults to hostname
-- `BACKUPS_KEEP` - Defaults to `7`
-
-## Status
-
-Stable and production ready.
+- `SOURCE_PATH` - Defaults to `/data`
+- `TARGET_PATH` - Defaults to `/backup`
+- `DAYS` - Days to keep the source files, defaults to `30`

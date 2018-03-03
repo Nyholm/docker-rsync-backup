@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-MAINTAINER Andrew Cutler <andrew@panubo.com>
+MAINTAINER Tobias Nyholm <tobias.nyholm@gmail.com>
 
 RUN apk add --update bash gzip openssh-client rsync && \
     rm -rf /var/cache/apk/*
